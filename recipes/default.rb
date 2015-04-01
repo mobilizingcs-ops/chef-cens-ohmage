@@ -101,7 +101,7 @@ end
 
 template '/etc/nginx/sites-available/ohmage' do
   source 'ohmage-nginx.conf.erb'
-  mode '077'
+  mode '0775'
   action :create
   variables(
     ssl_name: ssl_name,
