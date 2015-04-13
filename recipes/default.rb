@@ -127,7 +127,7 @@ end
 ruby_block 'set application.name' do
   block do
     file = Chef::Util::FileEdit.new('/var/lib/tomcat7/webapps/app/WEB-INF/properties/system.properties')
-    file.search_file_replace('application.name=', "application.name=#{deploy}")
+    file.search_file_replace_line('application.name=', "application.name=#{deploy}")
     file.write_file
   end
   not_if "grep -q \'application.name=#{deploy}\' /var/lib/tomcat7/webapps/app/WEB-INF/properties/system.properties"
