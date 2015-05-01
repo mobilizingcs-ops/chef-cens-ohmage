@@ -24,7 +24,8 @@ require 'chef-vault'
 
 # install/enable nginx
 node.set['nginx']['default_site_enabled'] = false
-node.set['nginx']['install_method'] = 'repo'
+node.set['nginx']['install_method'] = 'package'
+include_recipe 'nginx::repo'
 include_recipe 'nginx'
 
 # install jre-headless
