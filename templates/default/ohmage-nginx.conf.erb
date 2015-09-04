@@ -15,6 +15,7 @@ server {
   index index.html MobilizeWeb.html;
   client_body_buffer_size 100m;
   client_max_body_size 100m;
+  expires 7d;
 
 <% if node['ohmage']['read-only'] %>
   include includes/ro-ohmage;

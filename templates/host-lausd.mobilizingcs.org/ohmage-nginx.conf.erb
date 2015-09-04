@@ -11,6 +11,7 @@ server {
   index index.html MobilizeWeb.html;
   client_body_buffer_size 1000m;
   client_max_body_size 1000m;
+  expires 7d;
 
   #enable if read-onlying ohmage
   #include includes/ro-ohmage;

@@ -4,7 +4,7 @@ maintainer_email 'technolengy@gmail.com'
 license 'Apache 2.0'
 description 'Installs/Configures cens-ohmage'
 long_description 'Installs/Configures cens-ohmage'
-version '0.0.19'
+version '0.0.20'
 
 %w(ubuntu).each do |os|
   supports os
