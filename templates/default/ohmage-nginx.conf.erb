@@ -40,6 +40,7 @@ server {
   }
 
   location /password {
+   expires off;
    proxy_pass http://makeagoodpassword.com/password/;
   }
 
