@@ -68,14 +68,14 @@ else
   ssl_name = node['domain']
 end
 item = ChefVault::Item.load('ssl', ssl_name)
-file "/etc/ssl/certs/#{node['domain']}.crt" do
+file "/etc/ssl/certs/#{ssl_name}.crt" do
   owner 'root'
   group 'root'
   mode '0777'
   content item['cert']
   notifies :reload, 'service[nginx]', :delayed
 end
-file "/etc/ssl/private/#{node['domain']}.key" do
+file "/etc/ssl/private/#{ssl_name}.key" do
   owner 'root'
   group 'root'
   mode '0600'
