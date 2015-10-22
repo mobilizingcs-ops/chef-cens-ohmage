@@ -35,21 +35,9 @@ server {
    proxy_set_header        Host $http_host;
   }
 
-  location = /documents {
-   rewrite ^ /documents/ permanent;
-  }
-
   location /password {
    expires off;
    proxy_pass http://makeagoodpassword.com/password/;
-  }
-
-  location /navbar/account_policy/ {
-   proxy_pass https://web.ohmage.org/~snolen/account_policy/;
-  }
-
-  location /webapps/account_policy/ {
-   proxy_pass https://web.ohmage.org/~snolen/account_policy/;
   }
 
   #deny access to legacy tomcat servlet dirs..and any .git dir
