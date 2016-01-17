@@ -60,6 +60,22 @@ template '/etc/ohmage.conf' do
   action :create
 end
 
+# install flyway, configure conf file for ohmage
+flyway 'ohmage' do
+  url 'jdbc:mysql://127.0.0.1:3306/ohmage'
+  user 'ohmage'
+  password ohmage_db_password[fqdn]
+  additional_options(
+    'placeholders.fqdn' => fqdn,
+    'placeholders.base_dir' => '/var/lib/ohmage'
+  )
+  action :create
+end
+
+file '/opt/flyway-ohmage/flyway' do
+  mode '0755'
+end
+
 # SSL
 case node['fqdn']
 when 'pilots.mobilizelabs.org'
